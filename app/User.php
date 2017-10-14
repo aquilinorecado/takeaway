@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\UserLevel;
+use App\Address;
 
 class User extends Authenticatable
 {
@@ -15,7 +17,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+                            'name', 
+                            'email', 
+                            'password', 
+                            'userlevel_id',
+                            'contact',
+                            'phone',
+                            'email',
+                            'address_id'
     ];
 
     /**
@@ -24,6 +33,18 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+                            'password', 
+                            'remember_token',
     ];
+
+
+    public function userlevel(){
+        
+        return $this->belongsTo('App\UserLevel');
+    }
+
+    public function address(){
+        
+        return $this->belongsTo('App\Address');
+    }
 }

@@ -20,6 +20,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('address_id')->unsigned(); //Foreign Key
+            $table->foreign('address_id')->references('id')->on('addresses');
+            $table->integer('userlevel_id'); //Foreign Key
+            $table->foreign('userlevel_id')->references('id')->on('user_levels');
+            $table->integer('contact');
+            $table->integer('phone');
         });
     }
 
