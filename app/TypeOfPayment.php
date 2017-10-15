@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-App\TakeAway;
+use App\TakeAway;
 
 class TypeOfPayment extends Model
 {

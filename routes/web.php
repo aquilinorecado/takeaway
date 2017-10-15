@@ -24,9 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/top', 'TypeOfPaymentController@index')->name('top.index');
-/*Route::get('/posts/details/{id}', 'PostsController@details')->name('posts.details');
-Route::get('/posts/add', 'PostsController@add')->name('posts.add');
-Route::post('/posts/insert', 'PostsController@insert')->name('posts.insert');
-Route::get('/posts/edit/{id}', 'PostsController@edit')->name('posts.edit');
-Route::post('/posts/update/{id}', 'PostsController@update')->name('posts.update');
-Route::get('/posts/delete/{id}', 'PostsController@delete')->name('posts.delete');*/
+Route::get('/top/details/{id}', 'TypeOfPaymentController@details')->name('top.details');
+Route::get('/top/add', 'TypeOfPaymentController@add')->name('top.add');
+Route::post('/top/insert', 'TypeOfPaymentController@insert')->name('top.insert');
+Route::get('/top/edit/{id}', 'TypeOfPaymentController@edit')->name('top.edit');
+Route::post('/top/update/{id}', 'TypeOfPaymentController@update')->name('top.update');
+Route::get('/top/delete/{id}', 'TypeOfPaymentController@delete')->name('top.delete');
