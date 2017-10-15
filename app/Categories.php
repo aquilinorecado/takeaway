@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\SubCategorie;
 use App\takeaway;
 
-class Categorie extends Model
+class Categories extends Model
 {
     //
 
@@ -18,7 +18,7 @@ class Categorie extends Model
 
     public function subcategories(){
         
-        return $this->hasMany('App\SubCategorie');
+        return $this->hasMany('App\SubCategories');
     }
 
     public function takeawes(){

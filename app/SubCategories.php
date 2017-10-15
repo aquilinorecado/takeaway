@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Categorie;
 use App\TakeAway;
 
-class SubCategorie extends Model
+class SubCategories extends Model
 {
     //
 
@@ -18,7 +18,7 @@ class SubCategorie extends Model
     
     public function categorie(){
         
-        return $this->belongsTo('App\Categorie');
+        return $this->belongsTo('App\Categories');
     }
 
     public function takeways(){
