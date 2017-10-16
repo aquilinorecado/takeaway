@@ -30,3 +30,12 @@ Route::post('/top/insert', 'TypeOfPaymentController@insert')->name('top.insert')
 Route::get('/top/edit/{id}', 'TypeOfPaymentController@edit')->name('top.edit');
 Route::post('/top/update/{id}', 'TypeOfPaymentController@update')->name('top.update');
 Route::get('/top/delete/{id}', 'TypeOfPaymentController@delete')->name('top.delete');
+
+
+Route::get('/address', 'AddressController@index')->name('address.index');
+Route::get('/address/details/{id}', 'AddressController@details')->name('address.details');
+Route::get('/address/add', 'AddressController@add')->name('address.add');
+Route::post('/address/insert', 'AddressController@insert')->name('address.insert');
+Route::get('/address/edit/{id}', 'AddressController@edit')->name('address.edit');
+Route::post('/address/update/{id}', 'AddressController@update')->name('address.update');
+Route::get('/address/delete/{id}', 'AddressController@delete')->name('address.delete');

@@ -14,7 +14,7 @@ class Address extends Model
                 			'av',
                 			'block',
                 			'province',
-                			'number']
+                			'number'];
 
 
 
