@@ -18,6 +18,14 @@ class TypeOfPaymentController extends Controller
         //pass posts data to view and load list view
         return view('top.index', ['tops' => $tops]);
     }
+
+     public function details($id){
+        //fetch post data
+        $top = TypeOfPayment::find($id);
+        
+        //pass posts data to view and load list view
+        return view('top.details', ['top' => $top]);
+    }
     
     public function add(){
         //load form view
@@ -31,6 +39,7 @@ class TypeOfPaymentController extends Controller
             'state' => 'required'
         ]);
         
+
         
         $topData = $request->all();
         
