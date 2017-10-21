@@ -48,15 +48,15 @@
                                     <td>
                                         
                                         <a href="{{ route('top.details', $top->id) }}">
-                                          <span class="glyphicon glyphicon-eye-open"></span>
+                                          <i class="icon-eye-open"></i>
                                         </a>
 
                                         <a href="{{ route('top.edit', $top->id) }}">
-                                          <span class="glyphicon glyphicon-edit"></span>
+                                          <i class="icon-pencil"></i>
                                         </a>
 
                                         <a href="{{ route('top.delete', $top->id) }}" onclick="return confirm('Tens a certeza que pretende remover?')">
-                                            <span class="glyphicon glyphicon-trash"></span>
+                                            <i class="icon-trash"></i>
                                         </a>
                                         
                                     </td>

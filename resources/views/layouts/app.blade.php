@@ -2,83 +2,112 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+  
+    <!-- Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/b/378 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="title" content="Takeaway Localator">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Takeaway Locator e um website de divulga&ccedil;&atilde;o de Takeaway de Maputo." />
+    <meta name="keywords" content="twitter bootstrap themes,bootstrap themes,bootstrap templates,twitter bootstrap templates,cleanstrap,flat,themes,flatui,buy themes,cheap,quality,design,templates" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'TakeAway Locator') }}</title>
+    <title>TakeAway Locator</title>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<body id="top" class="index" data-spy="scroll" data-target=".scrollnav" data-offset="95">    
+    
+     <div class="navbar navbar-fixed-top">
+       <div class="navbar-inner">
+         <div class="container">
+           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </a>
+            <a class="brand" href="#">TakeAway Locator</a>
+                <div class="nav-collapse">
+                  
+                 
+                  @if (Route::has('login'))
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                      @auth
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
+                      @else
+                          <ul class="nav pull-right">
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                            <li><a href="{{ route('register') }}">Cadastro</a></li>
+                         `</ul>
+                      @endauth
+                  @endif
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+                  <form class="navbar-search pull-right" action="">
+                    <input type="text" class="search-query span2" placeholder="Procurar">
+                  </form>
+                </div><!-- /.nav-collapse -->
+         </div>
+       </div>
+     </div>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+     <!-- Masthead ================================================== -->
+
+    <header class="jumbotron" id="overview">
+
+    </br>
+
+    <div class="container">
+          <div class="subnav scrollnav">
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#">Home</a></li>                
+                <li><a href="#">Categorias</a></li>
+                <li><a href="#">Subcategorias</a></li>
+                <li><a href="{{ route('top.index')}}">Tipos de Pagamentos</a></li>
+                <li><a href="{{ route('address.index')}}">Endere&ccedil;os</a></li>
+                <li><a href="#">Lista de gestores</a></li>
+                <li><a href="#">Sobre nos</a></li>
+            </ul>
+          </div>
+      </div>
+    </header>
+
+    <div class="container">
+        <br>
 
         @yield('content')
-    </div>
+    
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+     <!-- Footer
+      ================================================== -->
+      <hr>
+
+      <footer id="footer">
+        <p class="pull-right"><a href="#top">Back to top</a></p>
+      </footer>
+
+    </div><!-- /container -->
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ asset('js/jquery.smooth-scroll.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/retro.js') }}"></script>
 </body>
 </html>
