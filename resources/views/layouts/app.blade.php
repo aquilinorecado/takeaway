@@ -58,8 +58,8 @@
                       @endauth
                   @endif
 
-                  <form class="navbar-search pull-right" action="">
-                    <input type="text" class="search-query span2" placeholder="Procurar">
+                  <form class="bs-docs-example navbar-search pull-right " action="">
+                    <input type="text" class="input-medium search-query" placeholder="Procurar">
                   </form>
                 </div><!-- /.nav-collapse -->
          </div>
@@ -69,17 +69,14 @@
      <!-- Masthead ================================================== -->
 
     <header class="jumbotron" id="overview">
-
-    </br>
-
     <div class="container">
           <div class="subnav scrollnav">
             <ul class="nav nav-pills">
-                <li class="active"><a href="#">Home</a></li>                
+                <li class="active"><a href="{{ route('takeaway.index') }}">Home</a></li>       
                 <li><a href="#">Categorias</a></li>
                 <li><a href="#">Subcategorias</a></li>
-                <li><a href="{{ route('top.index')}}">Tipos de Pagamentos</a></li>
-                <li><a href="{{ route('address.index')}}">Endere&ccedil;os</a></li>
+                <li><a href="{{ route('top.index') }}">Tipos de Pagamentos</a></li>
+                <li><a href="{{ route('address.index') }}">Endere&ccedil;os</a></li>
                 <li><a href="#">Lista de gestores</a></li>
                 <li><a href="#">Sobre nos</a></li>
             </ul>
@@ -88,14 +85,14 @@
     </header>
 
     <div class="container">
-        <br>
 
         @yield('content')
     
-
      <!-- Footer
       ================================================== -->
-      <hr>
+      
+
+      </br><hr>
 
       <footer id="footer">
         <p class="pull-right"><a href="#top">Back to top</a></p>

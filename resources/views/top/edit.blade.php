@@ -1,59 +1,58 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            <br>            
+<section id="forms">
 
-                <div class="col-lg-12">
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                        @foreach($errors->all() as $error)
-                            <p>{{ $error }}</p>
-                        @endforeach()
-                        </div>
-                    @endif
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Editar Tipos de Pagamentos <a href="{{ route('top.index') }}" class="label label-primary pull-right">Voltar</a>
-                        </div>
-                        <div class="panel-body">
-                            <form action="{{ route('top.update', $top->id) }}" method="POST" class="form-horizontal">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <label for="smFormGroupInput" class="control-label col-sm-2" >Descri&ccedil;&atilde;o :</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="description" id="description" class="form-control" value="{{ $top->description }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                   <label for="smFormGroupInput" class="control-label col-sm-2">Estado : </label>
-                                      <div class="col-sm-10">
-                                        <div class="radio">
-                                          <label>
-                                            <input type="radio" name="state" id="lgFormGroupInput" value="1" checked>
-                                              Activo :
-                                          </label>
-                                        </div>
-                                        <div class="radio">
-                                          <label>
-                                            <input type="radio" name="state" id="lgFormGroupInput" value="0">
-                                              Disactivo :
-                                          </label>
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <input type="submit" class="btn btn-default" value="Salvar" />
-                                    </div>
-                                </div>
-                            </form>
+        @if($errors->any())
+            <div class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach()
+            </div>
+        @endif
+          <div class="page-header">
+              
+                  <h1>Editar Tipos de Pagamentos </h1>
+              
+              <div>
+                  <a href="{{ route('top.index') }}" class="label label-primary">Voltar</a>
+              </div>
+          </div>
+          <div class="row">
+            <div class="span10 offset1">
+                <form action="{{ route('top.update', $top->id) }}" method="POST" class="form-horizontal well">
+                  <fieldset>
+                    {{ csrf_field() }}
+                    <div class="control-group">
+                        <label class="control-label" >Descri&ccedil;&atilde;o :</label>
+                       <div class="controls">
+                            <input type="text" name="description" id="description" class="input-xlarge" value="{{ $top->description }}">
                         </div>
                     </div>
-                </div>
+                    <div class="control-group">
+                       <label for="smFormGroupInput" class="control-label">Estado : </label>
+                          <div class="controls">
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="state" id="lgFormGroupInput" value="1" checked>
+                                  Activo :
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="state" id="lgFormGroupInput" value="0">
+                                  Disactivo :
+                              </label>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="form-actions">
+                          <input type="submit" class="btn btn-default" value="Salvar" />
+                          <button type="reset" class="btn">Cancel</button>
+                    </div>
+                  </fieldset>
+                </form>
             </div>
-        </div>
-</div>
+          </div>
+</section>
 @endsection
