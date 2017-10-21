@@ -51,23 +51,16 @@ class TakeAwayController extends Controller
     }
     
     public function update($id, Request $request){
-        //validate top data
-        $this->validate($request, [
-            'road' => 'required',
-            'av' => 'required',
-            'block' => 'required',
-            'province' => 'required',
-            'number' => 'required'
-        ]);
-        
+     
         //get post data
-        $addData = $request->all();
+        $twData = $request->all();
         
         //update post data
-        TakeAway::find($id)->update($addData);
+        TakeAway::find($id)->update($twData);
+        
         
         //store status message
-        Session::flash('success_msg', 'Endere&ccedil;o Actualizado com Sucesso!');
+        Session::flash('success_msg', 'Take Away Actualizado com Sucesso!');
 
         return redirect()->route('takeaway.index');
     }
@@ -77,7 +70,7 @@ class TakeAwayController extends Controller
         TakeAway::find($id)->delete();
         
         //store status message
-        Session::flash('success_msg', 'Endere&ccedil;o Removido com Sucesso!');
+        Session::flash('success_msg', 'Take Away Removido com Sucesso!');
 
         return redirect()->route('takeaway.index');
     } 
