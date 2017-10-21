@@ -26,4 +26,4 @@ class SubCategories extends Model
         return $this->belongsToMany('App\TakeAway');
     }
 }
-}
+
