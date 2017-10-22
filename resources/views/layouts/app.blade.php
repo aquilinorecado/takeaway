@@ -44,19 +44,35 @@
            </a>
             <a class="brand" href="#">TakeAway Locator</a>
                 <div class="nav-collapse">
-                  
-                 
-                  @if (Route::has('login'))
-
-                      @auth
-
-                      @else
+                        @guest 
                           <ul class="nav pull-right">
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Cadastro</a></li>
                          `</ul>
-                      @endauth
-                  @endif
+                        @else
+                          <ul class="nav pull-right">
+                               <li class="dropdown" id="preview-menu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Auth::user()->name }}  <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                  <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                  </li>
+
+                                  <li><a target="_blank" href="#">Meu Perfil</a></li>
+                                  
+                                </ul>
+                              </li>
+                          </ul>
+
+                        @endguest
 
                   <form class="bs-docs-example navbar-search pull-right " action="">
                     <input type="text" class="input-medium search-query" placeholder="Procurar">
@@ -72,7 +88,7 @@
     <div class="container">
           <div class="subnav scrollnav">
             <ul class="nav nav-pills">
-                <li class="active"><a href="{{ route('takeaway.index') }}">Home</a></li>       
+                <li class="active"><a href="{{ route('home') }}">Home</a></li>       
                 <li><a href="#">Categorias</a></li>
                 <li><a href="#">Subcategorias</a></li>
                 <li><a href="{{ route('top.index') }}">Tipos de Pagamentos</a></li>

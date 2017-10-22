@@ -1,23 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    Vo&ccedil;e esta Logado ao Sistema!
-                </div>
-            </div>
-        </div>
+<section id="typography">
+  <div class="bs-docs-example">
+    <div class="hero-unit">
+      <h1>Bem Vindo!</h1>
+      <p>O TakeAway Locator &eacute; um website disponivel para publicitar produtos e servi&ccedil;os disponiveis em todos os TakeAways da provincia e cidade de Maputo.</p>
+      <p><a class="btn btn-primary btn-large">Cadastre j&aacute; o seu TakeAway</a></p>
     </div>
-</div>
+  </div>
+</section>
+
 @endsection
