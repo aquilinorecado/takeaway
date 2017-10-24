@@ -18,7 +18,7 @@ class SubCategorieTakeAwayController extends Controller
 
      public function details($id){
         //fetch post data
-        $subcategorietakeaway = TakeAway::find($id);
+        $subcategorietakeaway = SubCategorieTakeAway::find($id);
         
         //pass posts data to view and load list view
         return view('subcategorietakeaway.details', ['subcategorietakeaway' => $subcategorietakeaway]);
@@ -31,46 +31,46 @@ class SubCategorieTakeAwayController extends Controller
     
     public function insert(Request $request){
             
-        $twData = $request->all();
+        $sbtwData = $request->all();
         
         //insert top data
-        TakeAway::create($twData);
+        SubCategorieTakeAway::create($sbtwData);
         
         //store status message
-        Session::flash('success_msg', ' TekeAway Adicionado com Sucesso!');
+        Session::flash('success_msg', ' Subecategoria TekeAway Adicionada com Sucesso!');
 
         return redirect()->route('subcategorietakeaway.index');
     }
     
     public function edit($id){
         //get top data by id
-        $subcategorietakeaway = TakeAway::find($id);
+        $subcategorietakeaway = SubCategorieTakeAway::find($id);
         
         //load form view
         return view('subcategorietakeaway.edit', ['subcategorietakeaway' => $subcategorietakeaway]);
     }
     
     public function update($id, Request $request){
-     q  wz
+    
         //get post data
-        $twData = $request->all();
+        $sbtwData = $request->all();
         
         //update post data
-        TakeAway::find($id)->update($twData);
+        SubCategorieTakeAway::find($id)->update($sbtwData);
         
         
         //store status message
-        Session::flash('success_msg', 'Take Away Actualizado com Sucesso!');
+        Session::flash('success_msg', 'Subcategoria Take Away Actualizado com Sucesso!');
 
         return redirect()->route('subcategorietakeaway.index');
     }
     
     public function delete($id){
         //update top data
-        TakeAway::find($id)->delete();
+        SubCategorieTakeAway::find($id)->delete();
         
         //store status message
-        Session::flash('success_msg', 'Take Away Removido com Sucesso!');
+        Session::flash('success_msg', 'Subcategoria Take Away Removida com Sucesso!');
 
         return redirect()->route('subcategorietakeaway.index');
     } 
