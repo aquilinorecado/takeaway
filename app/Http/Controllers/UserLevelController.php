@@ -58,7 +58,7 @@ class UserController extends Controller
         $userlevel = UserLevel::find($id);
         
         //load form view
-        return view('userlevel.edit', ['user' => $address]);
+        return view('userlevel.edit', ['user' => $users]);
     }
     
     public function update($id, Request $request){
