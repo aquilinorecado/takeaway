@@ -48,3 +48,28 @@ Route::post('/takeAway/insert', 'TakeAwayController@insert')->name('takeaway.ins
 Route::get('/takeAway/edit/{id}', 'TakeAwayController@edit')->name('takeaway.edit');
 Route::post('/takeAway/update/{id}', 'TakeAwayController@update')->name('takeaway.update');
 Route::get('/takeAway/delete/{id}', 'TakeAwayController@delete')->name('takeaway.delete');
+
+Route::get('/user', 'UserController@index')->name('user.index');
+Route::get('/user/details/{id}', 'UserController@details')->name('user.details');
+Route::get('/user/add', 'UserController@add')->name('user.add');
+Route::post('/user/insert', 'UserController@insert')->name('user.insert');
+Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');
+Route::post('/user/update/{id}', 'UserController@update')->name('user.update');
+Route::get('/user/delete/{id}', 'UserController@delete')->name('user.delete');
+
+Route::get('/userlevel', 'UserLevelController@index')->name('userlevel.index');
+Route::get('/userlevel/details/{id}', 'UserLevelController@details')->name('userlevel.details');
+Route::get('/userlevel/add', 'UserLevelController@add')->name('userlevel.add');
+Route::post('/userlevel/insert', 'UserLevelController@insert')->name('userlevel.insert');
+Route::get('/userlevel/edit/{id}', 'UserLevelController@edit')->name('userlevel.edit');
+Route::post('/userlevel/update/{id}', 'UserLevelController@update')->name('userlevel.update');
+Route::get('/userlevel/delete/{id}', 'UserLevelController@delete')->name('userlevel.delete');
+
+
+Route::get('/address', 'AddressController@index')->name('address.index');
+Route::get('/address/details/{id}', 'AddressController@details')->name('address.details');
+Route::get('/address/add', 'AddressController@add')->name('address.add');
+Route::post('/address/insert', 'AddressController@insert')->name('address.insert');
+Route::get('/address/edit/{id}', 'AddressController@edit')->name('address.edit');
+Route::post('/address/update/{id}', 'AddressController@update')->name('address.update');
+Route::get('/address/delete/{id}', 'AddressController@delete')->name('address.delete');
