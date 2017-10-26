@@ -66,10 +66,12 @@ Route::post('/userlevel/update/{id}', 'UserLevelController@update')->name('userl
 Route::get('/userlevel/delete/{id}', 'UserLevelController@delete')->name('userlevel.delete');
 
 
-Route::get('/address', 'AddressController@index')->name('address.index');
-Route::get('/address/details/{id}', 'AddressController@details')->name('address.details');
-Route::get('/address/add', 'AddressController@add')->name('address.add');
-Route::post('/address/insert', 'AddressController@insert')->name('address.insert');
-Route::get('/address/edit/{id}', 'AddressController@edit')->name('address.edit');
-Route::post('/address/update/{id}', 'AddressController@update')->name('address.update');
-Route::get('/address/delete/{id}', 'AddressController@delete')->name('address.delete');
+Route::get('/categories', 'CategoriesController@index')->name('categories.index');
+Route::get('/categories/details/{id}', 'CategoriesController@details')->name('categories.details');
+Route::get('/categories/add', 'CategoriesController@add')->name('address.add');
+Route::post('/categories/insert', 'CategoriesController@insert')->name('categories.insert');
+Route::get('/categories/edit/{id}', 'CategoriesController@edit')->name('categories.edit');
+Route::post('/categories/update/{id}', 'CategoriesController@update')->name('categories.update');
+Route::get('/categories/delete/{id}', 'CategoriesController@delete')->name('categories.delete');
+
+
