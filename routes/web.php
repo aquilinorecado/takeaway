@@ -41,13 +41,13 @@ Route::post('/address/update/{id}', 'AddressController@update')->name('address.u
 Route::get('/address/delete/{id}', 'AddressController@delete')->name('address.delete');
 
 
-Route::get('/takeAway', 'TakeAwayController@index')->name('takeaway.index');
-Route::get('/takeAway/details/{id}', 'TakeAwayController@details')->name('takeaway.details');
-Route::get('/takeAway/add', 'TakeAwayController@add')->name('takeaway.add');
-Route::post('/takeAway/insert', 'TakeAwayController@insert')->name('takeaway.insert');
-Route::get('/takeAway/edit/{id}', 'TakeAwayController@edit')->name('takeaway.edit');
-Route::post('/takeAway/update/{id}', 'TakeAwayController@update')->name('takeaway.update');
-Route::get('/takeAway/delete/{id}', 'TakeAwayController@delete')->name('takeaway.delete');
+Route::get('/takeaway', 'TakeAwayController@index')->name('takeaway.index');
+Route::get('/takeaway/details/{id}', 'TakeAwayController@details')->name('takeaway.details');
+Route::get('/takeaway/add', 'TakeAwayController@add')->name('takeaway.add');
+Route::post('/takeaway/insert', 'TakeAwayController@insert')->name('takeaway.insert');
+Route::get('/takeaway/edit/{id}', 'TakeAwayController@edit')->name('takeaway.edit');
+Route::post('/takeaway/update/{id}', 'TakeAwayController@update')->name('takeaway.update');
+Route::get('/takeaway/delete/{id}', 'TakeAwayController@delete')->name('takeaway.delete');
 
 Route::get('/user', 'UserController@index')->name('user.index');
 Route::get('/user/details/{id}', 'UserController@details')->name('user.details');
@@ -66,12 +66,12 @@ Route::post('/userlevel/update/{id}', 'UserLevelController@update')->name('userl
 Route::get('/userlevel/delete/{id}', 'UserLevelController@delete')->name('userlevel.delete');
 
 
-Route::get('/categories', 'CategoriesController@index')->name('categories.index');
-Route::get('/categories/details/{id}', 'CategoriesController@details')->name('categories.details');
-Route::get('/categories/add', 'CategoriesController@add')->name('address.add');
-Route::post('/categories/insert', 'CategoriesController@insert')->name('categories.insert');
-Route::get('/categories/edit/{id}', 'CategoriesController@edit')->name('categories.edit');
-Route::post('/categories/update/{id}', 'CategoriesController@update')->name('categories.update');
-Route::get('/categories/delete/{id}', 'CategoriesController@delete')->name('categories.delete');
+Route::get('/categorie', 'CategorieController@index')->name('categorie.index');
+Route::get('/categorie/details/{id}', 'CategorieController@details')->name('categorie.details');
+Route::get('/categorie/add', 'CategorieController@add')->name('categorie.add');
+Route::post('/categorie/insert', 'CategorieController@insert')->name('categorie.insert');
+Route::get('/categorie/edit/{id}', 'CategorieController@edit')->name('categorie.edit');
+Route::post('/categorie/update/{id}', 'CategorieController@update')->name('categorie.update');
+Route::get('/categorie/delete/{id}', 'CategorieController@delete')->name('categorie.delete');
 
 

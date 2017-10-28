@@ -123,11 +123,12 @@
                            <!-- Category ID -->
                             <select name="id" id="id">
                                <?php
-                                    $categories= Categories::all();
+                               use App\Categories;
+                                    $categories= Categories::orderBy('created_at','desc')->get();
 
                                     foreach($categories as $categorie) 
                                     {				
-                                            echo "<option value='". $categorie.id ."'>". $categorie.description ."</option>";
+                                            echo "<option value='". $categorie->id ."'>". $categorie->description ."</option>";
                                     } 
                               ?> 
                                 

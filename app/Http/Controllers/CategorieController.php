@@ -1,32 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Session;
+use App\Categories;
 
-class CategorieTakeAwayController extends Controller
+
+class CategorieController extends Controller
 {
     //
    
     public function index(){
-        //fetch all CategorieTakeAway
-        $categorietakeaways = CategorieTakeAway::orderBy('created_at','desc')->get();
+        //fetch all Categorie
+        $categories = Categories::orderBy('created_at','desc')->get();
         
         //pass posts data to view and load list view
-        return view('categorietakeaway.index', ['categorietakeaways' => $categorietakeaways]);
+        return view('categorie.index', ['categories' => $categories]);
     }
 
      public function details($id){
         //fetch post data
-        $categorietakeaway = CategorieTakeAway::find($id);
+        $categorie = Categories::find($id);
         
         //pass posts data to view and load list view
-        return view('categorietakeaway.details', ['categorietakeaway' => $categorietakeaway]);
+        return view('categorie.details', ['categorie' => $categorie]);
     }
     
     public function add(){
         //load form view
-        return view('categorietakeaway.add');
+        return view('categorie.add');
     }
     
     public function insert(Request $request){
@@ -34,20 +37,20 @@ class CategorieTakeAwayController extends Controller
         $sbtwData = $request->all();
         
         //insert top data
-        CategorieTakeAway::create($sbtwData);
+        Categories::create($sbtwData);
         
         //store status message
-        Session::flash('success_msg', ' categoria TekeAway Adicionada com Sucesso!');
+        Session::flash('success_msg', 'Categoria Adicionada com Sucesso!');
 
-        return redirect()->route('categorietakeaway.index');
+        return redirect()->route('categorie.index');
     }
     
     public function edit($id){
         //get top data by id
-        $categorietakeaway = CategorieTakeAway::find($id);
+        $categorie = Categories::find($id);
         
         //load form view
-        return view('categorietakeaway.edit', ['categorietakeaway' => $categorietakeaway]);
+        return view('categorie.edit', ['categorie' => $categorie]);
     }
     
     public function update($id, Request $request){
@@ -56,23 +59,23 @@ class CategorieTakeAwayController extends Controller
         $sbtwData = $request->all();
         
         //update post data
-        CategorieTakeAway::find($id)->update($sbtwData);
+        Categories::find($id)->update($sbtwData);
         
         
         //store status message
-        Session::flash('success_msg', 'Categoria Take Away Actualizado com Sucesso!');
+        Session::flash('success_msg', 'Categoria Actualizado com Sucesso!');
 
-        return redirect()->route('categorietakeaway.index');
+        return redirect()->route('categorie.index');
     }
     
     public function delete($id){
         //update top data
-        CategorieTakeAway::find($id)->delete();
+        Categories::find($id)->delete();
         
         //store status message
-        Session::flash('success_msg', 'Categoria Take Away Removida com Sucesso!');
+        Session::flash('success_msg', 'Categoria Removida com Sucesso!');
 
-        return redirect()->route('categorietakeaway.index');
+        return redirect()->route('categorie.index');
     } 
     
     

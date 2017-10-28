@@ -24,5 +24,6 @@ class Categories extends Model
     public function takeawes(){
         
         return $this->hasMany('App\takeaway');
+      
     }
 }
