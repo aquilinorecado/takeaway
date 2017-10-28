@@ -7,13 +7,13 @@
                     <div class="alert alert-success">{{ Session::get('success_msg') }}</div>
                     @endif
                 <!-- Posts list -->
-                @if(!empty($tops))
+                @if(!empty($takeaways))
                     <div class="page-header">
                             <div >
                                 <h1>Lista dos Take Aways</h1>
                             </div>
                             <div >
-                                <a class="btn btn-success" href="{{ route('top.add') }}"> Adicionar Novo Take Away</a>
+                                <a class="btn btn-success" href="{{ route('takeaway.add') }}"> Adicionar Novo Take Away</a>
                             </div>
                     </div>
                          <table class="table table-bordered table-striped table-hover">
@@ -40,15 +40,15 @@
                                         </td>
                                         <td>
                                             
-                                            <a href="{{ route('takeaway.details', $top->id) }}">
+                                            <a href="{{ route('takeaway.details', $takeaway->id) }}">
                                               <i class="icon-eye-open"></i>
                                             </a>
 
-                                            <a href="{{ route('takeaway.edit', $top->id) }}">
+                                            <a href="{{ route('takeaway.edit', $takeaway->id) }}">
                                               <i class="icon-pencil"></i>
                                             </a>
 
-                                            <a href="{{ route('takeaway.delete', $top->id) }}" onclick="return confirm('Tens a certeza que pretende remover?')">
+                                            <a href="{{ route('takeaway.delete', $takeaway->id) }}" onclick="return confirm('Tens a certeza que pretende remover?')">
                                                 <i class="icon-trash"></i>
                                             </a>
                                             
