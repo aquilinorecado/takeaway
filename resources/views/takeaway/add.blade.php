@@ -117,7 +117,23 @@
                     </div>
                     
                
-                    
+                    <div class="control-group">
+                        <label class="control-label" >Categoria :</label>
+                       <div class="controls">
+                           <!-- Category ID -->
+                            <select name="id" id="id">
+                               <?php
+                                    $categories= Categories::all();
+
+                                    foreach($categories as $categorie) 
+                                    {				
+                                            echo "<option value='". $categorie.id ."'>". $categorie.description ."</option>";
+                                    } 
+                              ?> 
+                                
+                            </select>
+                        </div>
+                    </div>
                     
                     <div class="form-actions">
                           <input type="submit" class="btn btn-default" value="Salvar" />
