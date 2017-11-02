@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
 use App\TakeAway;
-
+use App\Address;
 class TakeAwayController extends Controller
 {
     //
@@ -35,8 +35,15 @@ class TakeAwayController extends Controller
             
         $twData = $request->all();
         
+        
+        $address = new Address($twData);
+        $address->create();
+
+       // $takeaway = TakeAway::find(1);
+
+       // $address  = $takeaway->address()->save($address);
         //insert top data
-        TakeAway::create($twData);
+        //TakeAway::create($twData);
         
         //store status message
         Session::flash('success_msg', ' TekeAway Adicionado com Sucesso!');
