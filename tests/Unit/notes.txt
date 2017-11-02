@@ -1,0 +1,8 @@
+Incluir API Para capturar a localizacao do takeaway
+Considerar Takeways do Mesmo grupo. Ex. Tchova
+Logotipo
+Informacoes Adicionais: Entrega ao domicilio
+Prato do dia / para toda semana se possivel
+Considerar varias v fotos para produtos
+
+test.saufami.co.mz
