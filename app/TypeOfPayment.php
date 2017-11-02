@@ -14,7 +14,7 @@ class TypeOfPayment extends Model
 			            	'state'
     ];
 
-    public function takeaway(){
+    public function takeaways(){
         
         return $this->belongsToMany('App\TakeAway');
     }

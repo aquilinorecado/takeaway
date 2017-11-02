@@ -7,6 +7,7 @@ use App\Categories;
 use App\TypeOfPayment;
 use App\address;
 use App\Subcategories;
+use App\Products;
 
 class TakeAway extends Model
 {
@@ -18,7 +19,7 @@ class TakeAway extends Model
             				'typeofpayment_id', //Foreign Key
             				'name'=> 'required',
             				'opening_time',
-           				'closing_time',
+           				    'closing_time',
             				'website',
             				'contact',
             				'phone',
@@ -46,6 +47,9 @@ class TakeAway extends Model
         return $this->belongsToMany('App\Subcategories');
     }
 
-
+    public function produts(){
+        
+        return $this->hasMany('App\Products');
+    }
 
 }

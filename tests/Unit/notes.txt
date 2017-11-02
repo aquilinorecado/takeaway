@@ -6,3 +6,4 @@ Prato do dia / para toda semana se possivel
 Considerar varias v fotos para produtos
 
 test.saufami.co.mz
+https://github.com/bradcornford/Googlmapper - Dicas Gmaps
