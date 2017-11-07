@@ -4,16 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\TakeAway;
+Use App\User;
+use App\Extras;
 
 class Products extends Model
 {
     //
 
     protected $fillable = [
-			            	'takeaway_id',
-			            	'name',
-			            	'user_id',
-			            	'price',
+			            	'takeaway_id'=> 'required',
+			            	'name'=> 'required',
+			            	'user_id'=> 'required',
+			            	'price'=> 'required',
 			            	'description',
 			            	'state'
     ];
@@ -21,5 +23,15 @@ class Products extends Model
     public function takeaway(){
         
         return $this->belongsTo('App\TakeAway');
+    }
+
+    public function products(){
+        
+        return $this->belongsTo('App\User');
+    }
+
+    public function extras(){
+        
+        return $this->belongsToMany('App\Extras');
     }
 }

@@ -10,7 +10,7 @@ class Address extends Model
     //
 
     protected $fillable = [
-    					'road',
+    					    'road',
                 			'av',
                 			'block'=> 'required',
                 			'province'=> 'required',

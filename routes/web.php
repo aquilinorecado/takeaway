@@ -12,6 +12,7 @@
 */
 
 use App\TypeOfPayment;
+use App\products;
 
 
 Route::get('/', function () {
@@ -75,3 +76,11 @@ Route::post('/categorie/update/{id}', 'CategorieController@update')->name('categ
 Route::get('/categorie/delete/{id}', 'CategorieController@delete')->name('categorie.delete');
 
 
+
+Route::get('/product', 'ProductController@index')->name('product.index');
+Route::get('/product/details/{id}', 'ProductController@details')->name('product.details');
+Route::get('/product/add', 'ProductController@add')->name('product.add');
+Route::post('/product/insert', 'ProductController@insert')->name('product.insert');
+Route::get('/product/edit/{id}', 'ProductController@edit')->name('product.edit');
+Route::post('/product/update/{id}', 'ProductController@update')->name('product.update');
+Route::get('/product/delete/{id}', 'ProductController@delete')->name('product.delete');

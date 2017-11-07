@@ -92,7 +92,7 @@
                 <li><a href="#">Categorias</a></li>
                 <li><a href="#">Subcategorias</a></li>
                 <li><a href="{{ route('top.index') }}">Tipos de Pagamentos</a></li>
-                <li><a href="{{ route('address.index') }}">Endere&ccedil;os</a></li>
+                <li><a href="{{ route('product.index') }}">Produtos</a></li>
                 <li><a href="#">Lista de gestores</a></li>
                 <li><a href="#">Sobre nos</a></li>
             </ul>
