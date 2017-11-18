@@ -6,8 +6,7 @@
                     @if(Session::has('success_msg'))
                     <div class="alert alert-success">{{ Session::get('success_msg') }}</div>
                     @endif
-                <!-- Posts list -->
-                @if(!empty($products))
+                <!-- Posts list -->                
                     <div class="page-header">
                             <div >
                                 <h1>Lista dos Produtos </h1>
@@ -28,40 +27,45 @@
                 
                                 <!-- Table Body -->
                                 <tbody>
-                                @foreach($products as $product)
+                                @if(!empty($products))
+                                    @foreach($products as $product)
+                                        <tr>
+                                            <td >
+                                                <div>{{$product->id}}</div>
+                                            </td>
+                                            <td >
+                                                <div>{{$product->name}}</div>
+                                            </td>
+                                            <td >
+                                                <div>{{$product->price}}</div>
+                                            </td>
+                                            <td >
+                                                <div>{{$product->details}}</div>
+                                            </td>
+                                            <td>
+                                                
+                                                <a href="{{ route('product.details', $product->id) }}">
+                                                  <i class="icon-eye-open"></i>
+                                                </a>
+
+                                                <a href="{{ route('product.edit', $product->id) }}">
+                                                  <i class="icon-pencil"></i>
+                                                </a>
+
+                                                <a href="{{ route('product.delete', $product->id) }}" onclick="return confirm('Tens a certeza que pretende remover?')">
+                                                    <i class="icon-trash"></i>
+                                                </a>
+                                                
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
                                     <tr>
-                                        <td >
-                                            <div>{{$product->id}}</div>
-                                        </td>
-                                        <td >
-                                            <div>{{$product->name}}</div>
-                                        </td>
-                                        <td >
-                                            <div>{{$product->price}}</div>
-                                        </td>
-                                        <td >
-                                            <div>{{$product->details}}</div>
-                                        </td>
-                                        <td>
-                                            
-                                            <a href="{{ route('top.details', $top->id) }}">
-                                              <i class="icon-eye-open"></i>
-                                            </a>
-
-                                            <a href="{{ route('top.edit', $top->id) }}">
-                                              <i class="icon-pencil"></i>
-                                            </a>
-
-                                            <a href="{{ route('top.delete', $top->id) }}" onclick="return confirm('Tens a certeza que pretende remover?')">
-                                                <i class="icon-trash"></i>
-                                            </a>
-                                            
-                                        </td>
+                                        <td colspan="5">Nenhum produto encontrado.</td>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                @endif
+                                @endif
+                            </tbody>
+                        </table>               
                 </div>           
 </section>
 @endsection

@@ -18,14 +18,18 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-            $table->integer('address_id')->unsigned()->nullable(); //Foreign Key
-            $table->foreign('address_id')->references('id')->on('addresses');
+            $table->rememberToken();            
             $table->integer('userlevel_id')->nullable(); //Foreign Key
             $table->foreign('userlevel_id')->references('id')->on('user_levels');
             $table->integer('contact')->nullable();
             $table->integer('phone')->nullable();
+            //Endereco
+            $table->string('road',255);
+            $table->string('av',255);
+            $table->string('block',255);
+            $table->string('province',255);
+            $table->integer('number');
+            $table->timestamps();
         });
     }
 
