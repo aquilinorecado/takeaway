@@ -15,7 +15,6 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('name',255);
             $table->integer('user_id')->unsigned()->nullable(); 
             $table->foreign('user_id')->references('id')->on('users');
@@ -24,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('takeaway_id')->unsigned()->nullable(); 
             $table->foreign('takeaway_id')->references('id')->on('takeaways');
             $table->integer('state');
+            $table->timestamps();
         });
     }
 
