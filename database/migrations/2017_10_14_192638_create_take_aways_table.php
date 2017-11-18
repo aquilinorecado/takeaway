@@ -14,23 +14,23 @@ class CreateTakeAwaysTable extends Migration
     public function up()
     {
         Schema::create('take_aways', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->integer('address_id')->unsigned(); //Foreign Key
-            $table->foreign('address_id')->references('id')->on('addresses');
-            $table->integer('categorie_id')->unsigned(); //Foreign Key
-            $table->foreign('categorie_id')->references('id')->on('categories');
+            $table->increments('id');            
             $table->integer('user_id')->unsigned(); //Foreign Key
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('typeofpayment_id')->unsigned(); //Foreign Key
-            $table->foreign('typeofpayment_id')->references('id')->on('type_of_payments');
-            $table->integer('name');
+            $table->string('name');
             $table->time('opening_time');
             $table->time('closing_time');
             $table->string('website',255);
             $table->integer('contact');
             $table->integer('phone');
             $table->string('gmap',255);
+            // Endrecos dos Takeaways
+            $table->string('road',255);
+            $table->string('av',255);
+            $table->string('block',255);
+            $table->string('province',255);
+            $table->integer('number');
+            $table->timestamps();
 
         });
     }

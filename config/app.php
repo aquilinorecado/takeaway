@@ -163,9 +163,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        
         /*
          * Package Service Providers...
+         * Intervention\Image\ImageServiceProvider::class
          */
 
         /*
@@ -226,7 +227,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
         'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
+=======
+        'Image' => Intervention\Image\Facades\Image::class,
+>>>>>>> 8aaab58a01203db69b3bc5eb89f6f0d9ce9c40ab
 
     ],
 

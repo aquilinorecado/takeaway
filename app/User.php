@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\UserLevel;
-use App\Address;
 
 class User extends Authenticatable
 {
@@ -23,9 +22,9 @@ class User extends Authenticatable
                             'userlevel_id',
                             'contact',
                             'phone',
-                            'email',
-                            'address_id'
-    ];
+                            'email'
+
+                            ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -43,8 +42,4 @@ class User extends Authenticatable
         return $this->belongsTo('App\UserLevel');
     }
 
-    public function address(){
-        
-        return $this->belongsTo('App\Address');
-    }
 }
