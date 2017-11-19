@@ -23,7 +23,12 @@ class TakeAway extends Model
             				'website',
             				'contact',
             				'phone',
-            				'gmap'
+            				'gmap',
+                            'road',
+                            'av', 
+                            'block',
+                            'province',
+                            'number'
     ];
 
 

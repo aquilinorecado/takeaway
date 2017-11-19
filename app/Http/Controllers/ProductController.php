@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
-use App\Http\Requests;
 use Image;
 use App\Products;
 use App\Pictures;
+use App\User;
+use DB;
+
+
 
 class ProductController extends Controller
 {
@@ -32,7 +35,11 @@ class ProductController extends Controller
     
     public function add(){
         //load form view
-        return view('product.add');
+
+        $users = DB::table("users")->get();
+        $takeaways = DB::table("take_aways")->get();
+
+        return view('product.add', ['users' => $users,'takeaways' => $takeaways]);
     }
 
     public function form(){
@@ -131,5 +138,39 @@ class ProductController extends Controller
 
         return redirect()->route('product.index');
     } 
+
+    /*public function userAjax(Request $request)
+    {
+
+        $data = [];
+        if($request->has('q')){
+            $search = $request->q;
+            $data = DB::table("users")
+                    ->select("id","name")
+                    ->where('name','LIKE',"%$search%")
+                    ->get();
+
+        }
+        $data = DB::table("users")->get();
+        return response()->json($data);
+
+    } */
+
+    public function takeawayAjax(Request $request)
+    {
+        $data = [];
+        if($request->has('q')){
+            $search = $request->q;
+            $data = DB::table("takeaways")
+                    ->select("id","name")
+                    ->where('name','LIKE',"%$search%")
+                    ->get();
+
+
+        }
+
+        return response()->json($data);
+
+    }
 
 }

@@ -35,9 +35,9 @@ class UserController extends Controller
     public function insert(Request $request){
         //validate top data
         $this->validate($request, [
-            'block' => 'required',
-            'province' => 'required',
-            'number' => 'required'
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
         ]);
         
 
@@ -63,13 +63,13 @@ class UserController extends Controller
     
     public function update($id, Request $request){
         //validate top data
-        $this->validate($request, [
+       /* $this->validate($request, [
             'road' => 'required',
             'av' => 'required',
             'block' => 'required',
             'province' => 'required',
             'number' => 'required'
-        ]);
+        ]);*/
         
         //get post data
         $addData = $request->all();

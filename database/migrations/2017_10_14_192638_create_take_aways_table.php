@@ -25,11 +25,11 @@ class CreateTakeAwaysTable extends Migration
             $table->integer('phone');
             $table->string('gmap',255);
             // Endrecos dos Takeaways
-            $table->string('road',255);
-            $table->string('av',255);
-            $table->string('block',255);
-            $table->string('province',255);
-            $table->integer('number');
+            $table->string('road')->default('None');
+            $table->string('av')->default('None');
+            $table->string('block')->default('None');
+            $table->string('province')->default('None');
+            $table->integer('number')->default('0');
             $table->timestamps();
 
         });

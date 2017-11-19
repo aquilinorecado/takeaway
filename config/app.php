@@ -163,6 +163,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
+        \Conner\Tagging\Providers\TaggingServiceProvider::class,
         
         /*
          * Package Service Providers...
@@ -177,7 +179,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Cornford\Googlmapper\MapperServiceProvider::class,
+       // Cornford\Googlmapper\MapperServiceProvider::class,
+
+
 
     ],
 

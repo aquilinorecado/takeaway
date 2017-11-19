@@ -2,11 +2,6 @@
 
 @section('content')
 
-@guest 
-
-@else
-     return redirect('product/index');
-@endif
 <section id="forms">
 
         @if($errors->any())
@@ -32,7 +27,7 @@
                     <div class="bs-docs-example">
                       <div class="tabbable" style="margin-bottom: 18px;">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab1" data-toggle="tab">Produto</a></li>
+                          <li class="active"><a href="#tab1" data-toggle="tab">Descri&ccedil;ao do Produto</a></li>
                           <li><a href="#tab2" data-toggle="tab">Imagens</a></li> 
                         </ul>
                         <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
@@ -49,7 +44,7 @@
                                 <div class="control-group">
                                     <label class="control-label" > Pre&ccedil;o :</label>
                                    <div class="controls">
-                                        <input type="text" name="price" id="price" class="input-xlarge">
+                                        <input type="number" name="price" id="price" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -60,14 +55,24 @@
                                 </div>                    
                                 <div class="control-group">
                                     <label class="control-label" >TakeAway :</label>
-                                   <div class="controls">
-                                        <input type="text" name="takeaway_id" id="takeaway_id" class="input-xlarge">
+                                   <div class="controls">                                        
+                                        <select id="takeaway_id" class="input-xlarge">
+                                            <option></option>
+                                            @foreach($takeaways as $takeaway)
+                                            <option value="{{$takeaway->id}}">{{$takeaway->name}}</option>
+                                            @endforeach
+                                        </select >
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" > Gestor :</label>
                                    <div class="controls">
-                                        <input type="text" name="user_id" id="user_id" class="input-xlarge" value="">
+                                        <select id="user_id" class="input-xlarge">
+                                            <option></option>
+                                            @foreach($users as $user)
+                                            <option value="{{$user->id}}">{{$user->name}}</option>
+                                            @endforeach
+                                        </select >
                                     </div>
                                 </div>
                     

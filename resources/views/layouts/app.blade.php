@@ -30,6 +30,7 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 </head>
 <body id="top" class="index" data-spy="scroll" data-target=".scrollnav" data-offset="95">    
@@ -118,9 +119,27 @@
 
 
 
+    
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{{ asset('js/jquery.smooth-scroll.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/retro.js') }}"></script>
+    
+
+    <script type="text/javascript">
+      $('#user_id').select2({
+        placeholder: 'Seleciona um Usuario'
+      });
+    </script>
+
+    <script type="text/javascript">
+      $('#takeaway_id').select2({
+        placeholder: 'Seleciona um TakeAway'
+      });
+    </script>
+
+
 </body>
 </html>
