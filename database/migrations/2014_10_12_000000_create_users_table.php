@@ -19,8 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();            
-            $table->integer('userlevel_id')->nullable(); //Foreign Key
+            $table->integer('userlevel_id')->unsigned(); //Foreign Key
             $table->foreign('userlevel_id')->references('id')->on('user_levels');
+
+
             $table->integer('contact')->nullable();
             $table->integer('phone')->nullable();
             //Endereco
