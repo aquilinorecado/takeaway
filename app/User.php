@@ -22,8 +22,12 @@ class User extends Authenticatable
                             'userlevel_id',
                             'contact',
                             'phone',
-                            'email'
-
+                            'email',
+                            'road',
+                            'av', 
+                            'block',
+                            'province',
+                            'number'
                             ];
 
     /**

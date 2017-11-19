@@ -27,26 +27,6 @@ class TakeAway extends Model
     ];
 
 
-    public function address()
-    {
-        return $this->belongsTo('App\Address');
-    }
-
-    public function categories(){
-        
-        return $this->belongsToMany('App\Categories');
-    }
-
-    public function typeofpayments(){
-        
-        return $this->belongsToMany('App\TypeOfPayment');
-    }
-
-    public function subcategories(){
-        
-        return $this->belongsToMany('App\Subcategories');
-    }
-
     public function produts(){
         
         return $this->hasMany('App\Products');

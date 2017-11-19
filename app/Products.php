@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\TakeAway;
 Use App\User;
-use App\Extras;
 
 class Products extends Model
 {
     //
+    use \Conner\Tagging\Taggable;
 
     protected $fillable = [
 			            	'takeaway_id'=> 'required',
@@ -25,13 +25,9 @@ class Products extends Model
         return $this->belongsTo('App\TakeAway');
     }
 
-    public function products(){
+    public function user(){
         
         return $this->belongsTo('App\User');
     }
 
-    public function extras(){
-        
-        return $this->belongsToMany('App\Extras');
-    }
 }
