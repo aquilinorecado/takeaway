@@ -7,48 +7,48 @@
                     <div class="alert alert-success">{{ Session::get('success_msg') }}</div>
                     @endif
                 <!-- Posts list -->
-                @if(!empty($takeaways))
+                @if(!empty($tops))
                     <div class="page-header">
                             <div >
-                                <h1>Lista dos Take Aways</h1>
+                                <h1>Lista de level de usuarios </h1>
                             </div>
                             <div >
-                                <a class="btn btn-success" href="{{ route('takeaway.add') }}"> Adicionar Novo Take Away</a>
+                                <a class="btn btn-success" href="{{ route('top.add') }}"> Adicionar Novo level de usuarios</a>
                             </div>
                     </div>
                          <table class="table table-bordered table-striped table-hover">
                                 <!-- Table Headings -->
                                 <thead>
                                     <th width="10%">Codigo</th>
-                                    <th width="55%">Nome</th>
-                                    <th width="15%">Avenida</th>
-                                  <th width="20%">Opera&ccedil;&atilde;o</th>
+                                    <th width="55%">Descri&ccedil;&atilde;o</th>
+                                    <th width="15%">Estado</th>
+                                    <th width="20%">Opera&ccedil;&atilde;o</th>
                                 </thead>
                 
                                 <!-- Table Body -->
                                 <tbody>
-                                @foreach($takeaways as $takeaway)
+                                @foreach($tops as $top)
                                     <tr>
                                         <td >
-                                            <div>{{$takeaway->id}}</div>
+                                            <div>{{$top->id}}</div>
                                         </td>
                                         <td >
-                                            <div>{{$takeaway->name}}</div>
+                                            <div>{{$top->description}}</div>
                                         </td>
                                         <td >
-                                            <div>{{$takeaway->av}}</div>
+                                            <div>{{$top->state}}</div>
                                         </td>
                                         <td>
                                             
-                                            <a href="{{ route('takeaway.details', $takeaway->id) }}">
+                                            <a href="{{ route('top.details', $top->id) }}">
                                               <i class="icon-eye-open"></i>
                                             </a>
 
-                                            <a href="{{ route('takeaway.edit', $takeaway->id) }}">
+                                            <a href="{{ route('top.edit', $top->id) }}">
                                               <i class="icon-pencil"></i>
                                             </a>
 
-                                            <a href="{{ route('takeaway.delete', $takeaway->id) }}" onclick="return confirm('Tens a certeza que pretende remover?')">
+                                            <a href="{{ route('top.delete', $top->id) }}" onclick="return confirm('Tens a certeza que pretende remover?')">
                                                 <i class="icon-trash"></i>
                                             </a>
                                             

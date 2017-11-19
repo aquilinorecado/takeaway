@@ -13,22 +13,23 @@ class TakeAway extends Model
 {
     //
 	protected $fillable = [
-            				'address_id'=> 'required', //Foreign Key 
-            				'categorie_id', //Foreign Key
-            				'user_id', //Foreign Key
-            				'typeofpayment_id', //Foreign Key
-            				'name'=> 'required',
+            				'address_id'=> 'required',      				
+            				'user_id', 
+            				'name',
             				'opening_time',
            				    'closing_time',
             				'website',
-            				'contact',
+            				'mobile',
             				'phone',
-            				'gmap',
+                            'email',
                             'road',
-                            'av', 
-                            'block',
+                            'av',
+                           // 'block',
                             'province',
-                            'number'
+                            'number',
+                    	    'lat',
+                            'lng'
+
     ];
 
 

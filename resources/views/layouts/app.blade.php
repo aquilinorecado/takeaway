@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,9 +30,28 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+<<<<<<< HEAD
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+=======
+    
+    
+    <!-- Styles for google map -->
+    <style>
+    #mapa{
+        width: 350px;
+        height: 250px;
+    }
+    </style>
+  
+    
+    <!--------------------- End Stytes for google map ---->
+    
+    
+   
+    
+    
+>>>>>>> 9ae6a3b6120a1a2449a42a990b3e2395bd49684e
 
-</head>
 <body id="top" class="index" data-spy="scroll" data-target=".scrollnav" data-offset="95">    
     
      <div class="navbar navbar-fixed-top">
@@ -119,14 +138,19 @@
 
 
 
+<<<<<<< HEAD
     
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+=======
+   
+>>>>>>> 9ae6a3b6120a1a2449a42a990b3e2395bd49684e
     <script src="{{ asset('js/jquery.smooth-scroll.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/retro.js') }}"></script>
     
+<<<<<<< HEAD
 
     <script type="text/javascript">
       $('#user_id').select2({
@@ -141,5 +165,15 @@
     </script>
 
 
+=======
+     <!-- scripts for google Map Stelio Tonica 19/11/2017-->
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+    <!----- END script for google map-->
+    
+    
+>>>>>>> 9ae6a3b6120a1a2449a42a990b3e2395bd49684e
 </body>
-</html>
+

@@ -9,7 +9,7 @@ Use App\User;
 class Products extends Model
 {
     //
-    use \Conner\Tagging\Taggable;
+    //use \Conner\Tagging\Taggable; 
 
     protected $fillable = [
 			            	'takeaway_id'=> 'required',

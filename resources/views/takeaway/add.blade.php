@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
+
 @section('content')
+
+@guest 
+
+@else
+     return redirect('takeaway/index');
+@endif
 <section id="forms">
 
         @if($errors->any())
@@ -53,9 +60,9 @@
                     
                     
                      <div class="control-group">
-                        <label class="control-label" >Contacto :</label>
+                        <label class="control-label" >Celular :</label>
                        <div class="controls">
-                            <input type="text" name="contact" id="contact" class="input-xlarge">
+                            <input type="text" name="mobile" id="contact" class="input-xlarge">
                         </div>
                     </div>
                     
@@ -116,13 +123,32 @@
                         </div>
                     </div>
                     
-               
+                    <div class="form-group">
+				
+				<input id="searchmap" type="text"  placeholder="Search Box">
+				<div id="mapa"></div>
+		    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" >Latitude :</label>
+                       <div class="controls">
+                            <input type="text" name="lat" id="lat" class="input-xlarge">
+                        </div>
+                    </div>
+                    
                     <div class="control-group">
+                        <label class="control-label" >Longetude :</label>
+                       <div class="controls">
+                            <input type="text" name="lng" id="lng" class="input-xlarge">
+                        </div>
+                    </div>
+                    
+                <!--    <div class="control-group">
                         <label class="control-label" >Categoria :</label>
                        <div class="controls">
-                           <!-- Category ID -->
+                            Category ID 
                             <select name="id" id="id">
-                               <?php
+                               php
                                use App\Categories;
                                     $categories= Categories::orderBy('created_at','desc')->get();
 
@@ -135,7 +161,7 @@
                             </select>
                         </div>
                     </div>
-                    
+                     -->
                     <div class="form-actions">
                           <input type="submit" class="btn btn-default" value="Salvar" />
                           <button type="reset" class="btn">Cancel</button>
@@ -144,5 +170,99 @@
                 </form>
             </div>
           </div>
+        <script>
+    
+            var map;
+              function initMap() {
+                  map = new google.maps.Map(document.getElementById('mapa'),{
+                center:{lat: -25.913073,lng: 32.580812},
+                zoom:10
+            } );
+
+             var marker = new google.maps.Marker({
+                position: {lat: -25.913073,lng: 32.580812},
+                map: map,
+                draggable: true
+            });
+
+            var input = document.getElementById('searchmap');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            map.addListener('bounds_changed', function() {
+                  searchBox.setBounds(map.getBounds());
+                });
+
+            var markers = [];
+
+            searchBox.addListener('places_changed', function() {
+                  var places = searchBox.getPlaces();
+
+                  if (places.length == 0) {
+                    return;
+                  }
+
+                  // Clear out the old markers.
+                  markers.forEach(function(marker) {
+                    marker.setMap(null);
+                  });
+                  markers = [];
+
+                  // For each place, get the icon, name and location.
+                  var bounds = new google.maps.LatLngBounds();
+                  places.forEach(function(place) {
+                    if (!place.geometry) {
+                      console.log("Returned place contains no geometry");
+                      return;
+                    }
+                    var icon = {
+                      url: place.icon,
+                      size: new google.maps.Size(71, 71),
+                      origin: new google.maps.Point(0, 0),
+                      anchor: new google.maps.Point(17, 34),
+                      scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    marker =new google.maps.Marker({
+                      map: map,
+                      icon: icon,
+                      title: place.name,
+                      position: place.geometry.location,
+                      draggable: true
+                    });
+                     google.maps.event.addListener(marker,'position_changed',function(){
+                      var lat=marker.getPosition().lat();
+                      var lng=marker.getPosition().lng();
+                      $('#lat').val(lat);
+                      $('#lng').val(lng);
+                    });
+
+                    markers.push(marker);
+
+                    if (place.geometry.viewport) {
+                      // Only geocodes have viewport.
+                      bounds.union(place.geometry.viewport);
+                    } else {
+                      bounds.extend(place.geometry.location);
+                    }
+                  });
+                  map.fitBounds(bounds);
+
+                });
+
+
+
+            google.maps.event.addListener(marker,'position_changed',function(){
+                var lat=marker.getPosition().lat();
+                var lng=marker.getPosition().lng();
+                $('#lat').val(lat);
+                $('#lng').val(lng);
+                });
+            }         
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtng5Ove_4jDibP7QGNHOXze482V8_Yjg&callback=initMap&libraries=places" async defer></script>
 </section>
+
 @endsection
+
