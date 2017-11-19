@@ -36,7 +36,7 @@
                                             <div>{{$takeaway->name}}</div>
                                         </td>
                                         <td >
-                                            <div>{{(Address::find($takeaway->address_id))->av}}</div>
+                                            <div>{{$takeaway->av}}</div>
                                         </td>
                                         <td>
                                             

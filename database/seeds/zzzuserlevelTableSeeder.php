@@ -11,7 +11,7 @@ class userlevelTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user_levels')->insert([
+      DB::table('user_levels')->insert([
           'description' => 'administrador',
           'state' => 1
       ]);
@@ -19,5 +19,8 @@ class userlevelTableSeeder extends Seeder
           'description' => 'cliente',
           'state' => 1
       ]);
+  
+
+        //
     }
 }

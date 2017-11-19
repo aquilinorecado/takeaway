@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\TakeAway;
 use App\Address;
-use App\Auth;
+use Illuminate\Support\Facades\Auth;
 class TakeAwayController extends Controller
 {
     //
@@ -33,12 +33,16 @@ class TakeAwayController extends Controller
     }
     
     public function insert(Request $request){
+        
+        //dd ($request->all());
+        $request->request->add(['user_id' => Auth::id()]);
             
         $twData = $request->all();
+        //dd($twData );
         
-        User::create($twData->put('user_id', Auth::id()));
+       TakeAway::create($twData);
      
-
+        
        // $takeaway = TakeAway::find(1);
 
        // $address  = $takeaway->address()->save($address);

@@ -17,7 +17,7 @@ class CreateTakeAwaysTable extends Migration
             $table->increments('id');            
             $table->integer('user_id')->unsigned(); //Foreign Key
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name');
+            $table->string('name',255);
             $table->time('opening_time');
             $table->time('closing_time');
             $table->string('website',255);
@@ -27,7 +27,7 @@ class CreateTakeAwaysTable extends Migration
             // Endrecos dos Takeaways
             $table->string('road',255);
             $table->string('av',255);
-            $table->string('block',255);
+           // $table->string('block',255);
             $table->string('province',255);
             $table->integer('number');
             $table->DECIMAL('lat',12,9);

@@ -13,9 +13,9 @@ class TakeAway extends Model
 {
     //
 	protected $fillable = [
-            				'address_id'=> 'required', //Foreign Key             				
-            				'user_id', //Foreign Key
-            				'name'=> 'required',
+            				'address_id'=> 'required',      				
+            				'user_id', 
+            				'name',
             				'opening_time',
            				'closing_time',
             				'website',
@@ -24,7 +24,7 @@ class TakeAway extends Model
                                         'email',
                                         'road',
                                         'av',
-                                        'block',
+                                       // 'block',
                                         'province',
                                         'number',
                                 	'lat',
