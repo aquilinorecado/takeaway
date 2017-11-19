@@ -17,7 +17,7 @@
                             <h2>Lista dos usuarios </h2>
                         </div>
                         <div class="pull-right">
-                            <a class="btn btn-success" href="{{ route('address.add') }}"> Adicionar Novo usuario</a>
+                            <a class="btn btn-success" href="{{ route('user.add') }}"> Adicionar Novo usuario</a>
                         </div>
                     </div>
                 </div>
