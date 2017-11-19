@@ -41,7 +41,7 @@ class UserController extends Controller
         ]);
         
 
-        $request->request->add(['userlevel_id' => 1]);
+        $request -> request->add(['userlevel_id'=>2]);
         $addData = $request->all();
         dd($addData);
         //insert top data

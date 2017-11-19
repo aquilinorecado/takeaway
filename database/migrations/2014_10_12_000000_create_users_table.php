@@ -23,14 +23,14 @@ class CreateUsersTable extends Migration
             $table->foreign('userlevel_id')->references('id')->on('user_levels');
 
 
-            $table->integer('contact')->nullable();
-            $table->integer('phone')->nullable();
+            //$table->integer('contact')->nullable();
+            //$table->integer('phone')->nullable();
             //Endereco
-            $table->string('road',255);
-            $table->string('av',255);
-            $table->string('block',255);
-            $table->string('province',255);
-            $table->integer('number');
+            //$table->string('road',255);
+            //$table->string('av',255);
+            //$table->string('block',255);
+            //$table->string('province',255);
+            //$table->integer('number');
             $table->timestamps();
         });
     }
