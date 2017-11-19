@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,8 +30,24 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    
+    
+    <!-- Styles for google map -->
+    <style>
+    #mapa{
+        width: 350px;
+        height: 250px;
+    }
+    </style>
+  
+    
+    <!--------------------- End Stytes for google map ---->
+    
+    
+   
+    
+    
 
-</head>
 <body id="top" class="index" data-spy="scroll" data-target=".scrollnav" data-offset="95">    
     
      <div class="navbar navbar-fixed-top">
@@ -118,9 +134,19 @@
 
 
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   
     <script src="{{ asset('js/jquery.smooth-scroll.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/retro.js') }}"></script>
+    
+     <!-- scripts for google Map Stelio Tonica 19/11/2017-->
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtng5Ove_4jDibP7QGNHOXze482V8_Yjg&callback=initMap&libraries=places" async defer></script>
+    
+    
+    <!----- END script for google map-->
+    
+    
 </body>
-</html>
+
