@@ -142,7 +142,6 @@
      <!-- scripts for google Map Stelio Tonica 19/11/2017-->
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtng5Ove_4jDibP7QGNHOXze482V8_Yjg&callback=initMap&libraries=places" async defer></script>
     
     
     <!----- END script for google map-->

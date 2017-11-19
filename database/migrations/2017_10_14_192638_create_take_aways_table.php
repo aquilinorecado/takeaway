@@ -21,15 +21,17 @@ class CreateTakeAwaysTable extends Migration
             $table->time('opening_time');
             $table->time('closing_time');
             $table->string('website',255);
-            $table->integer('contact');
+            $table->integer('mobile');
             $table->integer('phone');
-            $table->string('gmap',255);
+            $table->string('email',255);
             // Endrecos dos Takeaways
             $table->string('road',255);
             $table->string('av',255);
             $table->string('block',255);
             $table->string('province',255);
             $table->integer('number');
+            $table->DECIMAL('lat',12,9);
+            $table->DECIMAL('lng',12,9);
             $table->timestamps();
 
         });

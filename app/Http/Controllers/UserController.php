@@ -41,16 +41,16 @@ class UserController extends Controller
         ]);
         
 
-        
+        $request->request->add(['userlevel_id' => 1]);
         $addData = $request->all();
-        
+        dd($addData);
         //insert top data
-        User::create($addData);
+       // User::create($addData);
         
         //store status message
-        Session::flash('success_msg', ' Endere&ccedil;o Adicionado com Sucesso!');
+       // Session::flash('success_msg', ' Endere&ccedil;o Adicionado com Sucesso!');
 
-        return redirect()->route('user.index');
+        //return redirect()->route('user.index');
     }
     
     public function edit($id){

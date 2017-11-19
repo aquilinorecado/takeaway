@@ -60,9 +60,9 @@
                     
                     
                      <div class="control-group">
-                        <label class="control-label" >Contacto :</label>
+                        <label class="control-label" >Celular :</label>
                        <div class="controls">
-                            <input type="text" name="contact" id="contact" class="input-xlarge">
+                            <input type="text" name="mobile" id="contact" class="input-xlarge">
                         </div>
                     </div>
                     
@@ -261,6 +261,7 @@
                 });
             }         
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtng5Ove_4jDibP7QGNHOXze482V8_Yjg&callback=initMap&libraries=places" async defer></script>
 </section>
 
 @endsection

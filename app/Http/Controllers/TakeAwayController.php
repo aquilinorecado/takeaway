@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\TakeAway;
 use App\Address;
+use App\Auth;
 class TakeAwayController extends Controller
 {
     //
@@ -35,9 +36,8 @@ class TakeAwayController extends Controller
             
         $twData = $request->all();
         
-        
-        $address = new Address($twData);
-        $address->create();
+        User::create($twData->put('user_id', Auth::id()));
+     
 
        // $takeaway = TakeAway::find(1);
 
