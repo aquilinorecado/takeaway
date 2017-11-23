@@ -3,11 +3,6 @@
 
 @section('content')
 
-@guest 
-
-@else
-     return redirect('takeaway/index');
-@endif
 <section id="forms">
 
         @if($errors->any())
@@ -27,34 +22,46 @@
           </div>
           <div class="row">
             <div class="span10 offset1">
-                <form action="{{ route('takeaway.insert') }}" method="POST" class="form-horizontal well">
+                <form action="{{ route('takeaway.insert') }}" enctype="multipart/form-data" method="POST" class="form-horizontal well">
                   <fieldset>
                     {{ csrf_field() }}
                     <div class="control-group">
                         <label class="control-label" >Nome do Take Away :</label>
                        <div class="controls">
-                            <input type="text" name="name" id="name" class="input-xlarge">
+                            <input type="text" value="{{ old('name') }}" name="name" id="name" class="input-xlarge">
                         </div>
                     </div>
-                    
+
+                    <div class="control-group">
+                        <label class="control-label" > Logo :</label>
+                       <div class="controls">
+                            <input type="file" name="avatar" id="avatar" value="{{ old('avatar') }}"/>
+                            @if ($errors->has('avatar'))
+                                <span class="alert alert-danger">
+                                    <strong>{{ $errors->first('avatar') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
                      <div class="control-group">
                         <label class="control-label" >Hora de Inicio :</label>
                        <div class="controls">
-                            <input type="time" name="opening_time" id="opening_time" class="input-xlarge">
+                            <input type="time" value="{{ old('opening_time') }}" name="opening_time" id="opening_time" class="input-xlarge">
                         </div>
                     </div>
                     
                      <div class="control-group">
                         <label class="control-label" >Hora de Fecho :</label>
                        <div class="controls">
-                            <input type="time" name="closing_time" id="closing_time" class="input-xlarge">
+                            <input type="time" value="{{ old('closing_time') }}" name="closing_time" id="closing_time" class="input-xlarge">
                         </div>
                     </div>
                     
                      <div class="control-group">
                         <label class="control-label" >Website:</label>
                        <div class="controls">
-                            <input type="text" name="website" id="website" class="input-xlarge">
+                            <input type="text" value="{{ old('website') }}" name="website" id="website" class="input-xlarge">
                         </div>
                     </div>
                     
@@ -62,7 +69,7 @@
                      <div class="control-group">
                         <label class="control-label" >Celular :</label>
                        <div class="controls">
-                            <input type="text" name="mobile" id="contact" class="input-xlarge">
+                            <input type="text" name="mobile" value="{{ old('mobile') }}" id="contact" class="input-xlarge">
                         </div>
                     </div>
                     
@@ -70,7 +77,7 @@
                     <div class="control-group">
                         <label class="control-label" >Telefone :</label>
                        <div class="controls">
-                            <input type="text" name="phone" id="phone" class="input-xlarge">
+                            <input type="text" name="phone" id="phone" value="{{ old('phone') }}" class="input-xlarge">
                         </div>
                     </div>
                     
@@ -78,28 +85,28 @@
                     <div class="control-group">
                         <label class="control-label" >Email :</label>
                        <div class="controls">
-                            <input type="text" name="email" id="email" class="input-xlarge">
+                            <input type="text" name="email" id="email" class="input-xlarge" value="{{ old('email') }}">
                         </div>
                     </div>
                     
                      <div class="control-group">
                         <label class="control-label" >Avenida :</label>
                        <div class="controls">
-                            <input type="text" name="av" id="av" class="input-xlarge">
+                            <input type="text" value="{{ old('av') }}" name="av" id="av" class="input-xlarge">
                         </div>
                     </div>
                     
                      <div class="control-group">
                         <label class="control-label" >Rua :</label>
                        <div class="controls">
-                            <input type="text" name="road" id="road" class="input-xlarge">
+                            <input type="text" name="road" id="road" value="{{ old('road') }}" class="input-xlarge">
                         </div>
                     </div>
                     
                     <div class="control-group">
                         <label class="control-label" >Numero :</label>
                        <div class="controls">
-                            <input type="text" name="number" id="number" class="input-xlarge">
+                            <input type="text" name="number" id="number" value="{{ old('number') }}" class="input-xlarge">
                         </div>
                     </div>
                     
@@ -123,23 +130,22 @@
                         </div>
                     </div>
                     
-                    <div class="form-group">
-				
-				<input id="searchmap" type="text"  placeholder="Search Box">
-				<div id="mapa"></div>
-		    </div>
+                    <div class="control-group">				
+              				<input id="searchmap" type="text"  placeholder="Search Box">
+              				<div id="mapa"></div>
+            		    </div>
                     
-                    <div class="form-group">
+                    <div class="control-group">
                         <label class="control-label" >Latitude :</label>
                        <div class="controls">
-                            <input type="text" name="lat" id="lat" class="input-xlarge">
+                            <input type="text" value="{{ old('lat') }}" name="lat" id="lat" class="input-xlarge">
                         </div>
                     </div>
                     
                     <div class="control-group">
                         <label class="control-label" >Longetude :</label>
                        <div class="controls">
-                            <input type="text" name="lng" id="lng" class="input-xlarge">
+                            <input type="text" name="lng" id="lng" class="input-xlarge" value="{{ old('lng') }}">
                         </div>
                     </div>
                     

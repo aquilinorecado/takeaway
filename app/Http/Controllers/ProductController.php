@@ -6,19 +6,21 @@ use Illuminate\Http\Request;
 use Session;
 use Image;
 use App\Products;
-use App\Pictures;
 use App\User;
+use App\TakeAway;
 use DB;
-
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProductController extends Controller
 {
     //
+    use \Conner\Tagging\Taggable;
 
     public function index(){
         //fetch all products
-        $products = Products::orderBy('created_at','desc')->get();
+        $products = Products::where('user_id', Auth::id())->orderBy('name','desc')->get();
         
         //pass posts data to view and load list view
         //pass posts data to view and load list view
@@ -35,11 +37,10 @@ class ProductController extends Controller
     
     public function add(){
         //load form view
+        $takeaways = TakeAway::orderBy('name','desc')->get();
+       // $takeaways = DB::table('take_aways')->where('user_id', $id);
 
-        $users = DB::table("users")->get();
-        $takeaways = DB::table("take_aways")->get();
-
-        return view('product.add', ['users' => $users,'takeaways' => $takeaways]);
+        return view('product.add', ['takeaways' => $takeaways]);
     }
 
     public function form(){
@@ -50,8 +51,8 @@ class ProductController extends Controller
     public function insert(Request $request){
         //validate product data
         
-    	/*$this->validate($request, [
-            'takeaway_id'=> 'required',
+    	$this->validate($request, [
+            'take_away_id'=> 'required',
         	'name'=> 'required',
         	'user_id'=> 'required',
         	'price'=> 'required',
@@ -59,43 +60,94 @@ class ProductController extends Controller
             'image2' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'image3' => 'required|image|mimes:jpeg,png,jpg|max:2048', 
 
-        ]);*/
+        ]);
 
+        $current = Carbon::now();
+        $imageName1 = '';
+        $imageName2 = '';
+        $imageName3 = '';
 
+        if($request->hasFile('image1')){
+            $avatar = $request->file('image1');
+            $imageName1 = time().'I1.'.$avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(64, 64)->save( public_path('/uploads/images/'. $imageName1 ));
+            }
 
-        $imageName1 = time().'I1.'.$request->image1->getClientOriginalExtension();
-        $request->image1->move(public_path('images'), $imageName1);
-        $imageName2 = time().'I2.'.$request->image2->getClientOriginalExtension();
-        $request->image2->move(public_path('images'), $imageName2);
+        if($request->hasFile('image2')){
+            $avatar = $request->file('image2');
+            $imageName2 = time().'I2.'.$avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(64, 64)->save( public_path('/uploads/images/'. $imageName2 ));
+            }
+
+        if($request->hasFile('image3')){
+            $avatar = $request->file('image3');
+            $imageName3 = time().'I3.'.$avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(64, 64)->save( public_path('/uploads/images/'. $imageName3 ));
+            }
+
+        //$imageName1 = time().'I1.'.$request->image1->getClientOriginalExtension();
+        //$request->image1->move(public_path('/uploads/images'), $imageName1);            
+            
+        /*$imageName2 = time().'I2.'.$request->image2->getClientOriginalExtension();
+        $request->image2->move(public_path('/uploads/images'), $imageName2);
         $imageName3 = time().'I3.'.$request->image3->getClientOriginalExtension();
-        $request->image3->move(public_path('images'), $imageName3);
-        
-        $productData = new App\Products;
+        $request->image3->move(public_path('/uploads/images'), $imageName3) ;*/
+
+        //Image::make($request->image3)->resize(300, 300)->save( public_path('/uploads/avatars/' . $imageName3 ) );
+       /* $productData = new App\Products;
         $productData->takeaway_id=$request->takeaway_id;
         $productData->name=$request->name;
         $productData->user_id=$request->user_id;
         $productData->price=$request->price;
         $productData->details=$request->details;
-        $productData->state=1;
+        $productData->state=1;*/
+        //$tags = explode(",", $request->tags);
 
-        //insert product data
-        $productID = $productData->save;
+        $productData= [ 
+                        'take_away_id' => $request->take_away_id,
+                        'name' => $request->name,
+                        'user_id'  => $request->user_id,
+                        'price' => $request->price,
+                        'details' => $request->details,
+                        'tags' => $request->tags, 
+                        'state' => 1,
+                        'created_at' => $current,
+                        'updated_at' => $current,
+                        ];
 
-        $pictureData = new App\Pictures;
-        $pictureData->app_id = "PD";
-        $pictureData->app_code = $productID;
+        //$article->tag($tags);
 
-        // Save images
-        $pictureData->address=$imageName1;
-        $pictureData->save;
+        $productID = DB::table('products')->insertGetId($productData);
+        //Products::find($productID)->update(['state'=>1]);
+       //Products::find($productID)->tag($tags);
 
-        // Save images
-        $pictureData->address=$imageName2;
-        $pictureData->save;
 
-        // Save images
-        $pictureData->address=$imageName3;
-        $pictureData->save;
+        $pictureData = [
+                        'app_code' => "PD",
+                        'app_id' => $productID,
+                        'address' => $imageName1,
+                        'created_at' => $current,
+                        'updated_at' => $current,
+                    ];
+        $pictureID = DB::table('Pictures')->insertGetId($pictureData);
+
+        $pictureData = [
+                        'app_code' => "PD",
+                        'app_id' => $productID,
+                        'address' => $imageName2,
+                        'created_at' => $current,
+                        'updated_at' => $current,
+                    ];
+        $pictureID = DB::table('Pictures')->insertGetId($pictureData);
+
+        $pictureData = [
+                        'app_code' => "PD",
+                        'app_id' => $productID,
+                        'address' => $imageName3,
+                        'created_at' => $current,
+                        'updated_at' => $current,
+                    ];
+        $pictureID = DB::table('Pictures')->insertGetId($pictureData);
 
         
         //Products::create($productData);
@@ -117,6 +169,13 @@ class ProductController extends Controller
     public function update($id, Request $request){
         //validate product data
         
+        $this->validate($request, [
+            'take_away_id'=> 'required',
+            'name'=> 'required',
+            'user_id'=> 'required',
+            'price'=> 'required',
+        ]);
+
         //get post data
         $productData = $request->all();
         

@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('block')->default('None');
             $table->string('province')->default('None');
             $table->integer('number')->default('0');
+            $table->string('avatar')->default('default.jpg');
             $table->timestamps();
         });
     }

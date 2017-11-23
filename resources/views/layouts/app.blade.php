@@ -30,10 +30,9 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-<<<<<<< HEAD
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-=======
-    
+
     
     <!-- Styles for google map -->
     <style>
@@ -45,12 +44,7 @@
   
     
     <!--------------------- End Stytes for google map ---->
-    
-    
-   
-    
-    
->>>>>>> 9ae6a3b6120a1a2449a42a990b3e2395bd49684e
+ 
 
 <body id="top" class="index" data-spy="scroll" data-target=".scrollnav" data-offset="95">    
     
@@ -72,7 +66,9 @@
                         @else
                           <ul class="nav pull-right">
                                <li class="dropdown" id="preview-menu">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Auth::user()->name }}  <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">
+                                  <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; position:absolute; top:14px; left:10px; border-radius:50%">
+                                  {{ Auth::user()->name }}  <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                   <li>
                                         <a href="{{ route('logout') }}"
@@ -86,7 +82,7 @@
                                         </form>
                                   </li>
 
-                                  <li><a target="_blank" href="#">Meu Perfil</a></li>
+                                  <li><a href="{{ url('/profile') }}">Meu Perfil</a></li>
                                   
                                 </ul>
                               </li>
@@ -108,13 +104,19 @@
     <div class="container">
           <div class="subnav scrollnav">
             <ul class="nav nav-pills">
-                <li class="active"><a href="{{ route('home') }}">Home</a></li>       
-                <li><a href="#">Categorias</a></li>
-                <li><a href="#">Subcategorias</a></li>
-                <li><a href="{{ route('top.index') }}">Tipos de Pagamentos</a></li>
-                <li><a href="{{ route('product.index') }}">Produtos</a></li>
-                <li><a href="#">Lista de gestores</a></li>
-                <li><a href="#">Sobre nos</a></li>
+              @guest           
+
+                  <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                  <li><a href="{{ route('takeaway.list') }}">TakeAway List</a></li> 
+                  <li><a href="{{ route('team') }}">Sobre nos</a></li>
+                @else
+                  <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                  <li><a href="{{ route('takeaway.list') }}">TakeAway List</a></li> 
+                  <li><a href="{{ route('takeaway.index') }}">TakeAway</a></li>
+                  <li><a href="{{ route('product.index') }}">Produtos</a></li>
+                  <li><a href="#">Lista de gestores</a></li>
+                  <li><a href="{{ route('team') }}">Sobre nos</a></li>
+                @endguest
             </ul>
           </div>
       </div>
@@ -137,20 +139,15 @@
     </div><!-- /container -->
 
 
-
-<<<<<<< HEAD
-    
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-=======
-   
->>>>>>> 9ae6a3b6120a1a2449a42a990b3e2395bd49684e
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+    <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>    
     <script src="{{ asset('js/jquery.smooth-scroll.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/retro.js') }}"></script>
     
-<<<<<<< HEAD
+
 
     <script type="text/javascript">
       $('#user_id').select2({
@@ -159,21 +156,16 @@
     </script>
 
     <script type="text/javascript">
-      $('#takeaway_id').select2({
+      $('#take_away_id').select2({
         placeholder: 'Seleciona um TakeAway'
       });
     </script>
 
-
-=======
-     <!-- scripts for google Map Stelio Tonica 19/11/2017-->
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    
-    
-    <!----- END script for google map-->
-    
-    
->>>>>>> 9ae6a3b6120a1a2449a42a990b3e2395bd49684e
+    <script type="text/javascript">
+      $('#userlevel_id').select2({
+        placeholder: 'Seleciona o seu Nivel'
+      });
+    </script>
 </body>
 

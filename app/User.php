@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\UserLevel;
+use App\TakeAway;
 
 class User extends Authenticatable
 {
@@ -44,6 +45,11 @@ class User extends Authenticatable
     public function userlevel(){
         
         return $this->belongsTo('App\UserLevel');
+    }
+
+    public function takeaways(){
+        
+        return $this->hasMany('App\TakeAway');
     }
 
 }

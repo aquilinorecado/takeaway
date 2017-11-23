@@ -9,7 +9,7 @@
                 <!-- Posts list -->                
                     <div class="page-header">
                             <div >
-                                <h1>Lista dos Produtos </h1>
+                                <h1>Lista dos meus Produtos </h1>
                             </div>
                             <div >
                                 <a class="btn btn-success" href="{{ route('product.add') }}"> Adicionar Novo Produtos</a>

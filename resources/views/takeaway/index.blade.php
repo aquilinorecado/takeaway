@@ -10,7 +10,7 @@
                 @if(!empty($takeaways))
                     <div class="page-header">
                             <div >
-                                <h1>Lista dos Take Aways</h1>
+                                <h1>Lista dos meus TakeAways</h1>
                             </div>
                             <div >
                                 <a class="btn btn-success" href="{{ route('takeaway.add') }}"> Adicionar Novo Take Away</a>

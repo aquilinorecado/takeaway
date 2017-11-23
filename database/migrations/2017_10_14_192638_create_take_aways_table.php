@@ -32,6 +32,7 @@ class CreateTakeAwaysTable extends Migration
             $table->integer('number');
             $table->DECIMAL('lat',12,9);
             $table->DECIMAL('lng',12,9);
+            $table->string('avatar')->default('default.jpg');
             $table->timestamps();
 
         });

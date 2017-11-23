@@ -3,11 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Categories;
-use App\TypeOfPayment;
-use App\address;
-use App\Subcategories;
 use App\Products;
+use App\User;
 
 class TakeAway extends Model
 {
@@ -33,9 +30,14 @@ class TakeAway extends Model
     ];
 
 
-    public function produts(){
+    public function products(){
         
         return $this->hasMany('App\Products');
     }
 
+
+    public function user(){
+        
+        return $this->belongsTo('App\User');
+    }
 }

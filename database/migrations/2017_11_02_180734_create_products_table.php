@@ -20,8 +20,9 @@ class CreateProductsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->double('price');
             $table->string('details');
-            $table->integer('takeaway_id')->unsigned();
-            $table->foreign('takeaway_id')->references('id')->on('take_aways');
+            $table->integer('take_away_id')->unsigned();
+            $table->foreign('take_away_id')->references('id')->on('take_aways');
+            $table->string('tags');
             $table->integer('state');
             $table->timestamps();
         });

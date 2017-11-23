@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
         \Conner\Tagging\Providers\TaggingServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         
         /*
          * Package Service Providers...

@@ -12,7 +12,7 @@ class Products extends Model
     //use \Conner\Tagging\Taggable; 
 
     protected $fillable = [
-			            	'takeaway_id'=> 'required',
+			            	'take_away_id'=> 'required',
 			            	'name'=> 'required',
 			            	'user_id'=> 'required',
 			            	'price'=> 'required',
@@ -30,4 +30,8 @@ class Products extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function pictures(){
+        
+        return $this->hasMany('App\Pictures');
+    }
 }

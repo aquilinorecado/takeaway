@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
+use Image;
 use App\TakeAway;
 use App\Address;
 use Illuminate\Support\Facades\Auth;
+use DB;
+
 class TakeAwayController extends Controller
 {
     //
    
     public function index(){
         //fetch all TakeAway
-        $takeaways = TakeAway::orderBy('name','desc')->get();
+        $takeaways = TakeAway::where('user_id', Auth::id())->orderBy('name','desc')->get();
         
         //pass posts data to view and load list view
         return view('takeaway.index', ['takeaways' => $takeaways]);
@@ -35,8 +38,17 @@ class TakeAwayController extends Controller
     public function insert(Request $request){
         
         //dd ($request->all());
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(100, 100)->save( public_path('/uploads/avatars/' . $filename ));
+
+             $request->request->add(['avatar' => $filename]);
+        }
+
         $request->request->add(['user_id' => Auth::id()]);
-            
+       
+
         $twData = $request->all();
         //dd($twData );
         
@@ -62,6 +74,16 @@ class TakeAwayController extends Controller
         //load form view
         return view('takeaway.edit', ['takeaway' => $takeaway]);
     }
+
+    public function list(){
+        //get top data by id
+        $takeaways = TakeAway::orderBy('created_at','desc')->get();;
+        
+        //load form view
+        return view('takeaway.list', ['takeaways' => $takeaways]);
+    }
+
+    
     
     public function update($id, Request $request){
      
