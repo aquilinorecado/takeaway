@@ -66,3 +66,4 @@ Route::get('/product/delete/{id}', 'ProductController@delete')->name('product.de
 Route::get('/product/form', 'ProductController@form')->name('product.form');
 Route::get('/product/user', 'ProductController@userAjax');
 Route::get('/product/list', 'ProductController@list')->name('product.list');
+Route::get('/product/search/{id}', 'ProductController@list')->name('product.search');
