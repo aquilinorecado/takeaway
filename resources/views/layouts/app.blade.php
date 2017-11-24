@@ -91,7 +91,7 @@
                         @endguest
 
                   <form class="navbar-form pull-right">
-                    <input type="text" class="" required>
+                    <input autocomplete="off" type="text" placeholder="Procurar TakeAway" name="top-search" id="top-search">
                     <button type="submit" class="btn">procurar</button>
                   </form>
                 </div><!-- /.nav-collapse -->

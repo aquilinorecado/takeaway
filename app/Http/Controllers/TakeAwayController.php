@@ -83,6 +83,14 @@ class TakeAwayController extends Controller
         return view('takeaway.list', ['takeaways' => $takeaways]);
     }
 
+
+    public function search(){
+        //get top data by id
+        $takeaways = TakeAway::orderBy('created_at','desc')->get();;
+        
+        //load form view
+        return view('takeaway.list', ['takeaways' => $takeaways]);
+    }
     
     
     public function update($id, Request $request){
