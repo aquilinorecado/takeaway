@@ -64,16 +64,15 @@
   <script>
     
             var map;
-            var l={{json_encode($takeaway->lat)}};
-            var lo={{json_encode($takeaway->lng) }};
+           
               function initMap() {
                   map = new google.maps.Map(document.getElementById('mapa'),{
-                center:{lat: l,lng: lo},
-                zoom:10
+                center:{lat: -25.913073,lng: 32.580812},
+                zoom:13
             } );
 
              var marker = new google.maps.Marker({
-                position: {lat: l,lng: lo},
+                position: {lat: -25.913073,lng: 32.580812},
                 map: map
             });
         }
