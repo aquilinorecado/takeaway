@@ -22,7 +22,10 @@
                   <p><b>Aberto no periodo compriendido entre: </b>{{$takeaway->opening_time}} as {{$takeaway->closing_time}}.</p>
                   <p>Nossos contactos: <b>Fixo</b>: {{$takeaway->mobile}}, <b>Movel:</b> {{$takeaway->phone}}, <b>E-mail:</b> {{$takeaway->email}}.</p>
                   <p><b>Com o endereco site:</b> {{$takeaway->road}}, {{$takeaway->number}}, {{$takeaway->province}}.</p>
-                  <p>Mais detalhes: {{$takeaway->details}}.</p>
+                  
+                  <a href="{{ route('takeaway.details', $takeaway->id) }}">
+                                              <p>Mais detalhes</p>
+                                            </a>
                   <p><b>Website</b>: <i>{{$takeaway->website}}</i></p>
                   <!-- Nested media object -->
                   @foreach($takeaway->products as $product)
