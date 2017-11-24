@@ -24,8 +24,7 @@
                   <p><b>Com o endereco site:</b> {{$takeaway->road}}, {{$takeaway->number}}, {{$takeaway->province}}.</p>
                   <div id="mapa"></div>
                   <a href="{{ route('takeaway.details', $takeaway->id) }}">
-                                              <p>Mais detalhes</p>
-                                            </a>
+                  <p>Mais detalhes</p></a>
                   <p><b>Website</b>: <i>{{$takeaway->website}}</i></p>
                   <!-- Nested media object -->
                   @foreach($takeaway->products as $product)
@@ -64,16 +63,16 @@
   <script>
     
             var map;
-            var l={{json_encode($takeaway->lat)}};
-            var lo={{json_encode($takeaway->lng) }};
+           // var l={{json_encode($takeaway->lat)}};
+            //var lo={{json_encode($takeaway->lng) }};
               function initMap() {
                   map = new google.maps.Map(document.getElementById('mapa'),{
-                center:{lat: l,lng: lo},
-                zoom:10
+                center:{lat: -25.95398248591323,lng: 32.588622592651404},
+                zoom:13
             } );
 
              var marker = new google.maps.Marker({
-                position: {lat: l,lng: lo},
+                position: {lat: -25.95398248591323,lng: 2.588622592651404},
                 map: map
             });
         }

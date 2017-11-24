@@ -21,7 +21,7 @@
               <img class="media-object" src="http://placehold.it/64x64">
             </a>
             <div class="media-body">
-              <h4 class="media-heading">Quinarivo</h4>
+              <h4 class="media-heading">Jorge Quinarivo</h4>
                    DAW 2017, trabalho final da cadeira de DAW.
             </div>
           </div>

@@ -28,9 +28,8 @@
 
                     <div class="control-group">
                         <label class="control-label" > Logo :</label>
-                       <div class="controls">
-                            <input readonly  type="file" name="avatar" id="avatar" value="{{ $takeaway->avatar }}">
-                            
+                       <div class="controls bs-docs-example bs-docs-example-image">
+                            <img src="/uploads/avatars/{{$takeaway->logo}}" class="img-polaroid">                     
                         </div>
                     </div>
 

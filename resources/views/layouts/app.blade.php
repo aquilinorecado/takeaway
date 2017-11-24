@@ -33,6 +33,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
+    <style type="text/css">
+      #mymap {
+          border:1px solid red;
+          width: 100%;
+          height: 500px;
+      }
+    </style>
+
     
     <!-- Styles for google map -->
     <style>
@@ -115,7 +126,6 @@
                   <li><a href="{{ route('takeaway.list') }}">TakeAway List</a></li> 
                   <li><a href="{{ route('takeaway.index') }}">TakeAway</a></li>
                   <li><a href="{{ route('product.index') }}">Produtos</a></li>
-                  <li><a href="#">Lista de gestores</a></li>
                   <li><a href="{{ route('team') }}">Sobre nos</a></li>
                 @endguest
             </ul>
