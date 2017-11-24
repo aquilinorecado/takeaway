@@ -22,7 +22,7 @@
                   <p><b>Aberto no periodo compriendido entre: </b>{{$takeaway->opening_time}} as {{$takeaway->closing_time}}.</p>
                   <p>Nossos contactos: <b>Fixo</b>: {{$takeaway->mobile}}, <b>Movel:</b> {{$takeaway->phone}}, <b>E-mail:</b> {{$takeaway->email}}.</p>
                   <p><b>Com o endereco site:</b> {{$takeaway->road}}, {{$takeaway->number}}, {{$takeaway->province}}.</p>
-                  
+                  <div id="mapa"></div>
                   <a href="{{ route('takeaway.details', $takeaway->id) }}">
                                               <p>Mais detalhes</p>
                                             </a>
@@ -60,5 +60,25 @@
     </div>
 	</section>
   @endif
+
+  <script>
+    
+            var map;
+            var l={{json_encode($takeaway->lat)}};
+            var lo={{json_encode($takeaway->lng) }};
+              function initMap() {
+                  map = new google.maps.Map(document.getElementById('mapa'),{
+                center:{lat: l,lng: lo},
+                zoom:10
+            } );
+
+             var marker = new google.maps.Marker({
+                position: {lat: l,lng: lo},
+                map: map
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtng5Ove_4jDibP7QGNHOXze482V8_Yjg&callback=initMap&libraries=places" async defer></script>
+</section>
 
 @endsection
