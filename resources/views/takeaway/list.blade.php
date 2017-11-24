@@ -63,18 +63,18 @@
   <script>
     
             var map;
-           // var l={{json_encode($takeaway->lat)}};
-            //var lo={{json_encode($takeaway->lng) }};
+           
               function initMap() {
                   map = new google.maps.Map(document.getElementById('mapa'),{
-                center:{lat: -25.95398248591323,lng: 32.588622592651404},
+                center:{lat: -25.913073,lng: 32.580812},
                 zoom:13
             } );
 
              var marker = new google.maps.Marker({
-                position: {lat: -25.95398248591323,lng: 2.588622592651404},
+                position: {lat: -25.913073, lng: 32.580812},
                 map: map
             });
+            
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtng5Ove_4jDibP7QGNHOXze482V8_Yjg&callback=initMap&libraries=places" async defer></script>
