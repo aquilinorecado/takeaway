@@ -25,7 +25,8 @@ class TakeAway extends Model
                             'province',
                             'number',
                     	    'lat',
-                            'lng'
+                            'lng',
+                            'logo',
 
     ];
 

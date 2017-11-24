@@ -17,7 +17,10 @@ class Products extends Model
 			            	'user_id'=> 'required',
 			            	'price'=> 'required',
 			            	'description',
-			            	'state'
+			            	'state',
+                            'image1'=> 'required',
+                            'image2'=> 'required',
+                            'image3'=> 'required',
     ];
 
     public function takeaway(){

@@ -90,8 +90,9 @@
 
                         @endguest
 
-                  <form class="bs-docs-example navbar-search pull-right " action="">
-                    <input type="text" class="input-medium search-query" placeholder="Procurar">
+                  <form class="navbar-form pull-right">
+                    <input type="text" class="" required>
+                    <button type="submit" class="btn">procurar</button>
                   </form>
                 </div><!-- /.nav-collapse -->
          </div>

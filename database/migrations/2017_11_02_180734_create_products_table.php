@@ -24,6 +24,9 @@ class CreateProductsTable extends Migration
             $table->foreign('take_away_id')->references('id')->on('take_aways');
             $table->string('tags');
             $table->integer('state');
+            $table->string('image1')->default('default.jpg');
+            $table->string('image2')->default('default.jpg');
+            $table->string('image3')->default('default.jpg');
             $table->timestamps();
         });
     }

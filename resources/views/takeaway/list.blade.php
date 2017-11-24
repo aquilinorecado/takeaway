@@ -14,7 +14,7 @@
   		<ul class="media-list">			
               <li class="media">
                 <a class="pull-left" href="#">
-                  <img class="media-object" src="/uploads/avatars/{{$takeaway->avatar}}">
+                  <img class="media-object" src="/uploads/avatars/{{$takeaway->logo}}">
                   
                 </a>
                 <div class="media-body">
@@ -28,11 +28,12 @@
                   @foreach($takeaway->products as $product)
                     <div class="media">
                       <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64">
+                        <img class="media-object" src="/uploads/images/{{$product->image1}}">
                       </a>
                       <div class="media-body">
                         <h4 class="media-heading">{{$product->name}}</h4>
                         <p>{{$product->details}}</p>
+                        <p><strong>Preco: </strong>{{$product->price}}</p>
                         <p> 
                           <div>
                             <strong>Tag:</strong>
@@ -44,6 +45,16 @@
                   @endforeach
   		</ul>
     @endforeach
+    <br>
+    <div class="pagination pagination-centered">
+      <ul>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+      </ul>
+    </div>
 	</section>
   @endif
 

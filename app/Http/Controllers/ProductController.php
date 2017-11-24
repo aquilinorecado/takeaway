@@ -111,6 +111,9 @@ class ProductController extends Controller
                         'details' => $request->details,
                         'tags' => $request->tags, 
                         'state' => 1,
+                        'image1' => $imageName1,
+                        'image2' => $imageName2,
+                        'image3' => $imageName3,
                         'created_at' => $current,
                         'updated_at' => $current,
                         ];
@@ -122,7 +125,7 @@ class ProductController extends Controller
        //Products::find($productID)->tag($tags);
 
 
-        $pictureData = [
+        /* $pictureData = [
                         'app_code' => "PD",
                         'app_id' => $productID,
                         'address' => $imageName1,
@@ -147,13 +150,13 @@ class ProductController extends Controller
                         'created_at' => $current,
                         'updated_at' => $current,
                     ];
-        $pictureID = DB::table('Pictures')->insertGetId($pictureData);
+        $pictureID = DB::table('Pictures')->insertGetId($pictureData); */
 
         
         //Products::create($productData);
         
         //store status message
-        Session::flash('success_msg', ' Tipo de Pagamento Adicionado com Sucesso!');
+        Session::flash('success_msg', ' O produto - '.$productID.' - foi adicionado com Sucesso!');
 
         return redirect()->route('product.index');
     }

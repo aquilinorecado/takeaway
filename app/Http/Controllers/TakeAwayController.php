@@ -43,7 +43,7 @@ class TakeAwayController extends Controller
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(100, 100)->save( public_path('/uploads/avatars/' . $filename ));
 
-             $request->request->add(['avatar' => $filename]);
+             $request->request->add(['logo'=>$filename]);
         }
 
         $request->request->add(['user_id' => Auth::id()]);
